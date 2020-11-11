@@ -2,14 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
-const Home = ({ data }) => {
+const Home = ({ data, product, setProduct }) => {
   return (
     <div>
       <Header />
       <Link to="/product">
         {data.offers.map((offer) => {
           return (
-            <div key={offer._id}>
+            <div
+              key={offer._id}
+              onClick={() => {
+                const newProducts = [...product];
+                newProducts.push({
+                  title: offer.owner.account.username,
+                  price: offer.product_price,
+                });
+                setProduct(newProducts);
+              }}
+            >
               <p>{offer.owner.account.username}</p>
               {offer.product_pictures.map((picture, index) => {
                 return (

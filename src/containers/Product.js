@@ -1,10 +1,15 @@
 import React from "react";
 import Header from "../components/Header";
 
-const Product = () => {
+const Product = ({ product }) => {
   return (
     <div>
       <Header />
+      <div>
+        {product.map((product, index) => {
+          return <div>{product.title}</div>;
+        })}
+      </div>
     </div>
   );
 };

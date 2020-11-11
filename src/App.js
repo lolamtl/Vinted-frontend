@@ -8,6 +8,7 @@ import Product from "./containers/Product";
 
 export default function App() {
   const [data, setData] = useState({});
+  const [product, setProduct] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
@@ -28,10 +29,10 @@ export default function App() {
     <Router>
       <Switch>
         <Route path="/product">
-          <Product />
+          <Product product={product} />
         </Route>
         <Route path="/">
-          <Home data={data} />
+          <Home data={data} product={product} setProduct={setProduct} />
         </Route>
       </Switch>
     </Router>
