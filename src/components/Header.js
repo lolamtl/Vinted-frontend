@@ -1,10 +1,13 @@
 import React from "react";
 import Logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="header">
-      <img alt="logo" src={Logo} />
+      <Link to="/">
+        <img alt="logo" src={Logo} />
+      </Link>
       <div>
         <input search></input>
         <button>s'inscrire</button>
