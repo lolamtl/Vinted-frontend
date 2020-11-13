@@ -1,0 +1,39 @@
+.logo {
+  margin-left: 300px;
+  height: 30px;
+}
+.header {
+  display: flex;
+}
+.search {
+  margin-left: 80px;
+  height: 40px;
+  width: 700px;
+  border: none;
+  background-color: #f5f6f7;
+  border-radius: 5px;
+}
+.submit {
+  border-radius: 10px;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  outline: none;
+  margin-left: 80px;
+}
+
+.signup {
+  height: 20px;
+  width: 200px;
+  color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  text-decoration: none;
+}
+.login {
+  margin-left: 50px;
+  color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  text-decoration: none;
+}
+.vendre {
+  margin-left: 500px;
+}
