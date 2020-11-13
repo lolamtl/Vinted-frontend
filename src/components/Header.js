@@ -8,7 +8,11 @@ const Header = ({ token, setUser }) => {
       <Link to="/">
         <img className="logo" alt="logo" src={Logo} />
       </Link>
-      <input className="search" type="search"></input>
+      <input
+        className="search"
+        type="search"
+        placeholder="Recherche des articles"
+      ></input>
 
       {token ? (
         <button
@@ -21,11 +25,11 @@ const Header = ({ token, setUser }) => {
       ) : (
         <div className="submit">
           <Link className="signup" to="/signup">
-            s'inscrire{" "}
+            S'inscrire{" "}
           </Link>
           <Link className="login" to="/login">
             {" "}
-            s'identifier
+            S'identifier
           </Link>
         </div>
       )}

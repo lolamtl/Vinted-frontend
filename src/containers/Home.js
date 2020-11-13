@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import imgDéchirée from "../assets/déchirée-img.svg";
+import vetements from "../assets/vetements.jpg";
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -24,8 +26,16 @@ const Home = () => {
     <p>Chargement ...</p>
   ) : (
     <div>
-      <h1>Prêts à faire du tri dans vos placards ?</h1>
-      <Link to="/login">Commencer à vendre</Link>
+      <img className="vetements" alt="vetements" src={vetements} />
+      <img className="déchirée" alt="déchirée" src={imgDéchirée} />
+      <p className="block">
+        Prêts à faire du tri <br />
+        dans vos placards ?
+        <br />
+        <Link className="startsale" to="/login">
+          Commencer à vendre
+        </Link>
+      </p>
       {data.offers.map((offer, index) => {
         return (
           <Link to={`/product/${offer._id}`} key={offer._id}>
