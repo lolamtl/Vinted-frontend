@@ -22,22 +22,32 @@ const Product = () => {
   return isLoading ? (
     <p>Chargement ...</p>
   ) : (
-    <div>
-      <img alt="t-shirt" src={data.product_image.url} />
-      <p>{data.product_price} €</p>
-      {data.product_details.map((product, index) => {
-        const keys = Object.keys(product);
-        return (
-          <p key={index}>
-            {keys[0]} {product[keys[0]]}
-          </p>
-        );
-      })}
-      <p>{data.product_name}</p>
-      <p>{data.product_description}</p>
-      <img alt="modemusthaves" src={data.owner.account.avatar.url} />
-      <p>{data.owner.account.username}</p>
-      <button>Acheter</button>
+    <div className="productpage">
+      <img
+        className="productimage"
+        alt="t-shirt"
+        src={data.product_image.url}
+      />
+      <div className="productdescription">
+        <p>{data.product_price} €</p>
+        {data.product_details.map((product, index) => {
+          const keys = Object.keys(product);
+          return (
+            <p key={index}>
+              {keys[0]} {product[keys[0]]}
+            </p>
+          );
+        })}
+        <p>{data.product_name}</p>
+        <p>{data.product_description}</p>
+        <img
+          className="avatarimage"
+          alt="modemusthaves"
+          src={data.owner.account.avatar.url}
+        />
+        <p>{data.owner.account.username}</p>
+        <button>Acheter</button>
+      </div>
     </div>
   );
 };
