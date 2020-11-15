@@ -29,24 +29,37 @@ const Product = () => {
         src={data.product_image.url}
       />
       <div className="productdescription">
-        <p>{data.product_price} €</p>
-        {data.product_details.map((product, index) => {
-          const keys = Object.keys(product);
-          return (
-            <p key={index}>
-              {keys[0]} {product[keys[0]]}
-            </p>
-          );
-        })}
-        <p>{data.product_name}</p>
-        <p>{data.product_description}</p>
-        <img
-          className="avatarimage"
-          alt="modemusthaves"
-          src={data.owner.account.avatar.url}
-        />
-        <p>{data.owner.account.username}</p>
-        <button>Acheter</button>
+        <div>
+          <p className="price">{data.product_price} €</p>
+          <div className="listproduct">
+            {data.product_details.map((product, index) => {
+              const keys = Object.keys(product);
+              return (
+                <ul className="detailslist">
+                  <li className="keyproduct" key={index}>
+                    {keys[0]}
+                  </li>
+                  <li className="namekey" key={index}>
+                    {product[keys[0]]}
+                  </li>
+                </ul>
+              );
+            })}
+          </div>
+        </div>
+        <div className="endcard">
+          <p className="marquename">{data.product_name}</p>
+          <p className="paragraphe">{data.product_description}</p>
+          <div className="saler">
+            <img
+              className="avatarimage"
+              alt="modemusthaves"
+              src={data.owner.account.avatar.url}
+            />
+            <p className="surname">{data.owner.account.username}</p>
+          </div>
+        </div>
+        <button className="buy">Acheter</button>
       </div>
     </div>
   );

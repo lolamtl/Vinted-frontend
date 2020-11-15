@@ -35,10 +35,11 @@ const Signup = ({ setUser }) => {
   };
 
   return (
-    <div>
-      <h3> S'inscrire </h3>
+    <div className="inscrire">
       <form onSubmit={handleSubmit}>
+        <h3> S'inscrire </h3>
         <input
+          className="name"
           type="text"
           placeholder="Nom d'utilisateur"
           value={username}
@@ -48,6 +49,7 @@ const Signup = ({ setUser }) => {
         />
         <br />
         <input
+          className="email"
           type="text"
           placeholder="@"
           value={email}
@@ -57,6 +59,7 @@ const Signup = ({ setUser }) => {
         />
         <br />
         <input
+          className="code"
           type="password"
           placeholder="Mot de passe"
           value={password}
@@ -67,10 +70,12 @@ const Signup = ({ setUser }) => {
         <br />
         <input type="checkbox" />
         <p>S'inscrire à notre newsletter</p>
-        <p>
+        <p className="termes">
           En m'inscrivant je confirme avoir lu et accepté les Termes &
-          Conditions et Politique de Confidentialité de Vinted. Je confirme
-          avoir au moins 18 ans.
+          Conditions
+          <br />
+          et Politique de Confidentialité de Vinted. Je confirme avoir au moins
+          18 ans.
         </p>
         <input type="submit" value="S'inscrire" />
         <br />
