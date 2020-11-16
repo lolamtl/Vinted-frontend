@@ -51,22 +51,26 @@ const Publish = () => {
 
   return (
     <div className="containersale">
-      <form onSubmit={handleSubmit}>
-        <p>Vends ton article</p>
-        <input
-          // multiple={true}
+      <form className="carré" onSubmit={handleSubmit}>
+        <p className="varticle">Vends ton article</p>
+        <div className="newpicture">
+          <input
+            className="photo"
+            // multiple={true}
 
-          type="file"
-          onChange={(event) => {
-            // console.log(event.target.files);
-            setFile(event.target.files[0]);
-          }}
-        />
+            type="file"
+            onChange={(event) => {
+              // console.log(event.target.files);
+              setFile(event.target.files[0]);
+            }}
+          />
+        </div>
         <br />
         <div className="containerbox">
           <div className="box">
-            <p>Titre</p>
+            <p className="obj">Titre</p>
             <input
+              className="input1"
               type="text"
               value={title}
               placeholder="ex: Chaussures blanche"
@@ -76,11 +80,12 @@ const Publish = () => {
             />
           </div>
           <br />
-          <div className="box">
-            <p>Décris ton article</p>
+          <div className="box2">
+            <p className="obj">Décris ton article</p>
             <input
+              className="input2"
               type="text"
-              placeholder="ex: Jamais porté, très agréable"
+              placeholder="ex: Jamais porté, très agréable "
               value={description}
               onChange={(event) => {
                 setDescription(event.target.value);
@@ -91,8 +96,9 @@ const Publish = () => {
         <br />
         <div className="containerbox">
           <div className="box">
-            <p>Etat</p>
+            <p className="obj">Etat</p>
             <input
+              className="input1"
               type="text"
               value={condition}
               placeholder="Neuve avec la boite d'origin"
@@ -103,8 +109,9 @@ const Publish = () => {
           </div>
           <br />
           <div className="box">
-            <p>Lieu</p>
+            <p className="obj">Lieu</p>
             <input
+              className="input1"
               type="text"
               placeholder="ex: Toulouse"
               value={city}
@@ -115,8 +122,9 @@ const Publish = () => {
           </div>
           <br />
           <div className="box">
-            <p>Marque</p>
+            <p className="obj">Marque</p>
             <input
+              className="input1"
               type="text"
               placeholder="ex: Zara"
               value={marque}
@@ -128,8 +136,9 @@ const Publish = () => {
 
           <br />
           <div className="box">
-            <p>Taille</p>
+            <p className="obj">Taille</p>
             <input
+              className="input1"
               type="text"
               placeholder="ex: L/40/12"
               value={taille}
@@ -140,8 +149,9 @@ const Publish = () => {
           </div>
           <br />
           <div className="box">
-            <p>Couleur</p>
+            <p className="obj">Couleur</p>
             <input
+              className="input1"
               type="text"
               placeholder="ex: Blanche"
               value={color}
@@ -154,21 +164,31 @@ const Publish = () => {
         <br />
         <div className="containerbox">
           <div className="box">
-            <p>Prix</p>
-            <input
-              type="text"
-              placeholder="0,00 €"
-              value={price}
-              onChange={(event) => {
-                setPrice(event.target.value);
-              }}
-            />
-            <input type="checkbox" />
-            <p>Je suis intéressé(e) par les échanges</p>
+            <p className="obj">Prix</p>
+            <div className="chekbox1">
+              <input
+                className="input3"
+                type="text"
+                placeholder="0,00 €"
+                value={price}
+                onChange={(event) => {
+                  setPrice(event.target.value);
+                }}
+              />
+              <div className="checkbox2">
+                <input className="click" type="checkbox" />
+                <p className="interessé">
+                  Je suis intéressé(e) par les échanges
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-
-        <button type="submit">Ajouter</button>
+        <div className="ajouter">
+          <button className="ajouter2" type="submit">
+            Ajouter
+          </button>
+        </div>
       </form>
     </div>
   );
