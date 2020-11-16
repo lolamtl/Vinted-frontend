@@ -51,11 +51,15 @@ const Product = () => {
           <p className="marquename">{data.product_name}</p>
           <p className="paragraphe">{data.product_description}</p>
           <div className="saler">
-            <img
-              className="avatarimage"
-              alt="modemusthaves"
-              src={data.owner.account.avatar.url}
-            />
+            {data.owner.account.avatar ? (
+              <img
+                className="avatarimage"
+                alt="modemusthaves"
+                src={data.owner.account.avatar.url}
+              />
+            ) : (
+              data.owner.account.avatar
+            )}
             <p className="surname">{data.owner.account.username}</p>
           </div>
         </div>

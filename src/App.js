@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import Cookie from "js-cookie";
+import Publish from "./containers/Publish";
 
 export default function App() {
   const [token, setToken] = useState(Cookie.get("userToken") || null);
@@ -33,8 +34,11 @@ export default function App() {
         <Route path="/login">
           <Login setUser={setUser} />
         </Route>
+        <Route path="/publish">
+          <Publish token={token} />
+        </Route>
         <Route path="/">
-          <Home />
+          <Home token={token} setUser={setUser} />
         </Route>
       </Switch>
     </Router>

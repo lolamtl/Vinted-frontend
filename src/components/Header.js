@@ -16,6 +16,7 @@ const Header = ({ token, setUser }) => {
 
       {token ? (
         <button
+          className="deconnect"
           onClick={() => {
             setUser(null);
           }}
@@ -33,7 +34,9 @@ const Header = ({ token, setUser }) => {
           </Link>
         </div>
       )}
-      <button className="vendre">Vends tes articles</button>
+      <Link className="vendre" to={token ? "/publish" : "/login"}>
+        Vends tes articles
+      </Link>
     </div>
   );
 };

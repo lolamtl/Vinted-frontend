@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import imgDéchirée from "../assets/déchirée-img.svg";
 import vetements from "../assets/vetements.jpg";
 
-const Home = () => {
+const Home = ({ token }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,7 +33,7 @@ const Home = () => {
           Prêts à faire du tri <br />
           dans vos placards ?
           <br />
-          <Link className="startsale" to="/login">
+          <Link className="startsale" to={token ? "/publish" : "/login"}>
             Commencer à vendre
           </Link>
         </p>
@@ -43,11 +43,15 @@ const Home = () => {
           return (
             <Link className="card" to={`/product/${offer._id}`} key={offer._id}>
               <div className="avatar">
-                <img
-                  className="avatarimg"
-                  alt="avatar"
-                  src={offer.owner.account.avatar.url}
-                />
+                {offer.owner.account.avatar ? (
+                  <img
+                    className="avatarimg"
+                    alt="avatar"
+                    src={offer.owner.account.avatar.url}
+                  />
+                ) : (
+                  offer.owner.account.avatar
+                )}
                 <p className="username">{offer.owner.account.username}</p>
               </div>
               <img
@@ -70,7 +74,7 @@ const Home = () => {
           );
         })}
       </div>
-      ;
+
       <br />
     </div>
   );

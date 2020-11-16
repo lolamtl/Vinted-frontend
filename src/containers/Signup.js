@@ -37,49 +37,61 @@ const Signup = ({ setUser }) => {
   return (
     <div className="inscrire">
       <form onSubmit={handleSubmit}>
-        <h3> S'inscrire </h3>
-        <input
-          className="name"
-          type="text"
-          placeholder="Nom d'utilisateur"
-          value={username}
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        />
-        <br />
-        <input
-          className="email"
-          type="text"
-          placeholder="@"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
-        <br />
-        <input
-          className="code"
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
-        <br />
-        <input type="checkbox" />
-        <p>S'inscrire à notre newsletter</p>
-        <p className="termes">
-          En m'inscrivant je confirme avoir lu et accepté les Termes &
-          Conditions
+        <p className="titlesignup"> S'inscrire </p>
+        <div className="tripleinput">
+          <input
+            className="name"
+            type="text"
+            placeholder="Nom d'utilisateur"
+            value={username}
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
           <br />
-          et Politique de Confidentialité de Vinted. Je confirme avoir au moins
-          18 ans.
-        </p>
-        <input type="submit" value="S'inscrire" />
+          <input
+            className="email"
+            type="text"
+            placeholder="@"
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+          <br />
+          <input
+            className="code"
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          />
+        </div>
         <br />
-        <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+        <div className="newsletter">
+          <div className="accepte">
+            <input className="checkbox" type="checkbox" />
+            <p
+              className="textnewsletter
+          "
+            >
+              S'inscrire à notre newsletter
+            </p>
+          </div>
+          <p className="termes">
+            En m'inscrivant je confirme avoir lu et accepté <br />
+            les Termes & Conditions et Politique <br />
+            de Confidentialité de Vinted. <br />
+            Je confirme avoir au moins 18 ans.
+          </p>
+        </div>
+        <input className="inscription" type="submit" value="S'inscrire" />
+        <br />
+        <Link className="gologin" to="/login">
+          Tu as déjà un compte ? Connecte-toi !
+        </Link>
       </form>
     </div>
   );

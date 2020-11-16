@@ -31,30 +31,39 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <div>
-      <h3>Se connecter</h3>
+    <div className="inscrire">
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="@"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
+        <p className="titlesignup">Se connecter</p>
+        <div className="tripleinput">
+          <input
+            className="email"
+            type="email"
+            placeholder="@"
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+          <br />
+          <input
+            className="code"
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          />
+        </div>
         <br />
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
+        <button className="inscription" type="submit">
+          Se connecter
+        </button>
+
         <br />
-        <button type="submit">Se connecter</button>
-        <br />
-        <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
+        <Link className="gologin" to="/signup">
+          Pas encore de compte ? Inscris-toi !
+        </Link>
       </form>
     </div>
   );
