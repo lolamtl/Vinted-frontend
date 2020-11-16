@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+
 import Cookie from "js-cookie";
 
 const Publish = () => {
@@ -14,7 +14,6 @@ const Publish = () => {
   const [taille, setTaille] = useState("");
   const [color, setColor] = useState("");
   const [token, setToken] = useState(Cookie.get("userToken") || null);
-  const history = useHistory();
 
   const formData = new FormData();
   formData.append("picture", file);
