@@ -9,8 +9,11 @@ import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import Cookie from "js-cookie";
 import Publish from "./containers/Publish";
+import Payment from "./containers/Payment";
 
 export default function App() {
+  // const location = useLocation();
+  // const { title } = location.state;
   const [token, setToken] = useState(Cookie.get("userToken") || null);
   const setUser = (tokenToSet) => {
     if (tokenToSet) {
@@ -26,7 +29,7 @@ export default function App() {
       <Header token={token} setUser={setUser} />
       <Switch>
         <Route path="/product/:id">
-          <Product />
+          <Product setUser={setUser} />
         </Route>
         <Route path="/signup">
           <Signup setUser={setUser} />
@@ -36,6 +39,9 @@ export default function App() {
         </Route>
         <Route path="/publish">
           <Publish token={token} />
+        </Route>
+        <Route path="/payment">
+          <Payment token={token} />
         </Route>
         <Route path="/">
           <Home token={token} setUser={setUser} />

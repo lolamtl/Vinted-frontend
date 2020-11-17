@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-const Product = () => {
+const Product = ({ setUser }) => {
   const { id } = useParams();
 
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const history = useHistory({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +21,7 @@ const Product = () => {
     };
     fetchData();
   }, [id]);
+
   return isLoading ? (
     <p>Chargement ...</p>
   ) : (
@@ -63,7 +66,14 @@ const Product = () => {
             <p className="surname">{data.owner.account.username}</p>
           </div>
         </div>
-        <button className="buy">Acheter</button>
+        <button
+          onClick={() => {
+            history.push("/payment", { title: data.title });
+          }}
+          className="buy"
+        >
+          Acheter
+        </button>
       </div>
     </div>
   );

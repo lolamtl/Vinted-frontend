@@ -1,19 +1,17 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-import Cookie from "js-cookie";
-
-const Publish = () => {
+const Publish = ({ token }) => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState();
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
-  const [marque, setMarque] = useState("");
-  const [taille, setTaille] = useState("");
+  const [brand, setBrand] = useState("");
+  const [size, setSize] = useState("");
   const [color, setColor] = useState("");
-  const [token, setToken] = useState(Cookie.get("userToken") || null);
 
   const formData = new FormData();
   formData.append("picture", file);
@@ -22,13 +20,11 @@ const Publish = () => {
   formData.append("price", price);
   formData.append("condition", condition);
   formData.append("city", city);
-  formData.append("brand", marque);
-  formData.append("size", taille);
+  formData.append("brand", brand);
+  formData.append("size", size);
   formData.append("color", color);
 
   // console.log(formData);
-
-  Cookie.get("userToken");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,23 +45,28 @@ const Publish = () => {
     }
   };
 
-  return (
+  return token ? (
     <div className="containersale">
       <form className="carré" onSubmit={handleSubmit}>
         <p className="varticle">Vends ton article</p>
         <div className="newpicture">
+          <div className="label">
+            <label className="plus" htmlFor="file">
+              +
+            </label>
+            <label className="cursor" htmlFor="file">
+              Ajouter une photo
+            </label>
+          </div>
+
           <input
             className="photo"
-            // multiple={true}
-
+            id="file"
             type="file"
-            onChange={(event) => {
-              // console.log(event.target.files);
-              setFile(event.target.files[0]);
-            }}
+            onChange={(event) => setFile(event.target.files[0])}
           />
         </div>
-        <br />
+
         <div className="containerbox">
           <div className="box">
             <p className="obj">Titre</p>
@@ -79,10 +80,10 @@ const Publish = () => {
               }}
             />
           </div>
-          <br />
+
           <div className="box2">
             <p className="obj">Décris ton article</p>
-            <input
+            <textarea
               className="input2"
               type="text"
               placeholder="ex: Jamais porté, très agréable "
@@ -93,7 +94,6 @@ const Publish = () => {
             />
           </div>
         </div>
-        <br />
         <div className="containerbox">
           <div className="box">
             <p className="obj">Etat</p>
@@ -107,7 +107,7 @@ const Publish = () => {
               }}
             />
           </div>
-          <br />
+
           <div className="box">
             <p className="obj">Lieu</p>
             <input
@@ -120,34 +120,33 @@ const Publish = () => {
               }}
             />
           </div>
-          <br />
+
           <div className="box">
             <p className="obj">Marque</p>
             <input
               className="input1"
               type="text"
               placeholder="ex: Zara"
-              value={marque}
+              value={brand}
               onChange={(event) => {
-                setMarque(event.target.value);
+                setBrand(event.target.value);
               }}
             />
           </div>
 
-          <br />
           <div className="box">
             <p className="obj">Taille</p>
             <input
               className="input1"
               type="text"
               placeholder="ex: L/40/12"
-              value={taille}
+              value={size}
               onChange={(event) => {
-                setTaille(event.target.value);
+                setSize(event.target.value);
               }}
             />
           </div>
-          <br />
+
           <div className="box">
             <p className="obj">Couleur</p>
             <input
@@ -161,7 +160,6 @@ const Publish = () => {
             />
           </div>
         </div>
-        <br />
         <div className="containerbox">
           <div className="box">
             <p className="obj">Prix</p>
@@ -191,6 +189,13 @@ const Publish = () => {
         </div>
       </form>
     </div>
+  ) : (
+    <Redirect
+      to={{
+        pathname: "/login",
+        state: { fromPublish: true },
+      }}
+    />
   );
 };
 

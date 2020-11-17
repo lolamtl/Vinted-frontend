@@ -385,7 +385,7 @@ form {
 }
 .containerbox {
   background-color: white;
-  /* border: 2px red solid; */
+  margin-bottom: 20px;
   padding: 0px 20px;
 }
 .newpicture {
@@ -394,6 +394,30 @@ form {
   justify-content: center;
   align-items: center;
   background-color: white;
+  margin-bottom: 20px;
+  height: 200px;
+}
+.label {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: flex-start;
+  align-items: center;
+  border: solid 1px#39b1ba;
+  color: #39b1ba;
+  font-size: 20px;
+  padding: 0px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.plus {
+  cursor: pointer;
+  align-items: center;
+  margin-right: 20px;
+  font-style: bold;
+  font-size: 40px;
+}
+.cursor {
+  cursor: pointer;
 }
 .input1 {
   border: none;
@@ -404,10 +428,12 @@ form {
   font-size: 16px;
   width: 500px;
 }
-/* .photo {
-  background-color: red;
-  border: none;
-} */
+.photo {
+  overflow: visible;
+  /* visibility: hidden; */
+
+  cursor: pointer;
+}
 .carré {
   width: 1300px;
 }
@@ -470,4 +496,45 @@ form {
   border-radius: 5px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.pay {
+  background-color: #05bb6a;
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin: 20px 20px;
+  height: 50px;
+  border-radius: 5px;
+}
+.paiement {
+  background-color: #eaedee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vw;
+  margin-top: 10px;
+}
+.cardelement {
+  width: 550px;
+  border: wheat solid 1px;
+  margin: auto 20px;
+  border-radius: 5px;
+
+  padding: 10px 0px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  margin-top: 40px;
+}
+.lastdetails {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 500px;
+  font-size: 16px;
+  margin: 30px 20px;
+  border-bottom: #eaedee solid 1px;
+  padding-bottom: 30px;
 }

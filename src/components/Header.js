@@ -26,10 +26,9 @@ const Header = ({ token, setUser }) => {
       ) : (
         <div className="submit">
           <Link className="signup" to="/signup">
-            S'inscrire{" "}
+            S'inscrire
           </Link>
           <Link className="login" to="/login">
-            {" "}
             S'identifier
           </Link>
         </div>
