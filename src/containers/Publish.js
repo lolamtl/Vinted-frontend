@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Publish = ({ token }) => {
-  const [img, setImg] = useState("");
+  const history = useHistory();
+
   const [title, setTitle] = useState("");
   const [file, setFile] = useState();
   const [description, setDescription] = useState("");
@@ -39,7 +40,7 @@ const Publish = ({ token }) => {
           },
         }
       );
-
+      history.push("/");
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
@@ -184,7 +185,7 @@ const Publish = ({ token }) => {
           </div>
         </div>
         <div className="ajouter">
-          <button className="ajouter2" type="submit">
+          <button type="submit" className="ajouter2">
             Ajouter
           </button>
         </div>
