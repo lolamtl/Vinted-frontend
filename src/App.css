@@ -76,10 +76,10 @@ body {
   width: 100vw;
 }
 .déchirée {
-  background-color: hidden;
   position: absolute;
-  margin-top: 420px;
-  width: 100vw;
+  top: 420px;
+  bottom: 0px;
+  right: 0;
 }
 .vetements {
   position: absolute;
@@ -122,7 +122,7 @@ body {
   justify-content: flex-start;
 
   padding-top: 547px;
-  margin: 10px 300px;
+  margin: 10px 60px;
 
   /* margin-right: 10%; */
 }
@@ -502,8 +502,9 @@ form {
   border: none;
   color: white;
   font-size: 16px;
-  margin: 20px 20px;
-  height: 50px;
+  margin: 40px 20px;
+  padding: 10px 20px;
+  /* height: 50px; */
   border-radius: 5px;
 }
 .paiement {
@@ -528,6 +529,7 @@ form {
   justify-content: center;
   background-color: white;
   margin-top: 40px;
+  height: 550px;
 }
 .lastdetails {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -537,4 +539,36 @@ form {
   margin: 30px 20px;
   border-bottom: #eaedee solid 1px;
   padding-bottom: 30px;
+}
+.frais {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px #eaedee solid;
+  margin: 20px 20px;
+  padding-bottom: 40px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.commande {
+  display: flex;
+  justify-content: space-between;
+}
+.commande p {
+  margin: 10px 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.resume {
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.transaction {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  /* border-bottom: 1px #eaedee solid; */
 }

@@ -9,13 +9,11 @@ const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
 
 const Payment = ({ token }) => {
   const location = useLocation();
-  const { title } = location.state;
+  const { title, price } = location.state;
   return (
     <span>
-      {title}
-
       <Elements stripe={stripePromise}>
-        <PaymentForm token={token} />
+        <PaymentForm token={token} price={price} title={title} />
       </Elements>
     </span>
   );

@@ -3,9 +3,9 @@ import { Redirect } from "react-router-dom";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 
-const PaymentForm = ({ token, title }) => {
+const PaymentForm = ({ token, title, price }) => {
   const [succeed, setSucceed] = useState(false);
-  const [data, setData] = useState({});
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -16,21 +16,21 @@ const PaymentForm = ({ token, title }) => {
       const cardElement = elements.getElement(CardElement);
 
       const stripeResponse = await stripe.createToken(cardElement, {
-        name: "tok_1HoX2PHSgw8vJOn1VrtrSBcs",
+        name: "5faea64473d23200179af0fb",
       });
-      console.log(stripeResponse);
+      // console.log(stripeResponse);
       const stripeToken = stripeResponse.token.id;
 
       // Requête vers notre serveur
       const response = await axios.post(
         " https://lereacteur-vinted-api.herokuapp.com/payment",
         {
-          stripeToken: stripeToken,
-          title: "Le Titre de l'annonce",
-          amount: 1000,
+          token: stripeToken,
+          title: title,
+          amount: price,
         }
       );
-      console.log(response.data);
+      // console.log(response.data);
       if (response.data.status === "succeeded") {
         setSucceed(true);
       }
@@ -42,19 +42,43 @@ const PaymentForm = ({ token, title }) => {
   return token ? (
     <div>
       {succeed ? (
-        <p>Paiment validé !</p>
+        <div>
+          <h1>Bientôt chez vous !</h1>
+          <p>
+            Paiement validé ! Votre produit sera expédié sous 48h après
+            confirmation par le vendeur de votre commande.
+          </p>
+        </div>
       ) : (
         <div className="paiement">
           <form className="form" onSubmit={handleSubmit}>
+            <p className="resume">Résumé de la Commande</p>
             <div>
-              <p>Commande</p>
-              <p>{data.product_price}</p>
-
-              <p className="lastdetails">
-                Il ne vous reste plus qu'un étape pour vous offrir
-                {data.product_name}. Vous allez payer 3.89 € (frais de
-                protection et frais de port inclus).
-              </p>
+              <div className="frais">
+                <div className="commande">
+                  <p>Commande</p>
+                  <p>{price} €</p>
+                </div>
+                <div className="commande">
+                  <p>Frais protection acheteurs </p>
+                  <p>1.00€</p>
+                </div>
+                <div className="commande">
+                  <p>Frais de port </p>
+                  <p>2.00€</p>
+                </div>
+              </div>
+              <span className="transaction">
+                <div className="commande">
+                  <p>Total</p>
+                  <p>{price + 3} €</p>
+                </div>
+                <p className="lastdetails">
+                  Il ne vous reste plus qu'une étape pour vous offrir {title}.
+                  Vous allez payer {price + 3} € (frais de protection et frais
+                  de port inclus).
+                </p>
+              </span>
             </div>
             <CardElement className="cardelement" />
             <button className="pay" type="submit">

@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 const Publish = ({ token }) => {
+  const [img, setImg] = useState("");
   const [title, setTitle] = useState("");
   const [file, setFile] = useState();
   const [description, setDescription] = useState("");

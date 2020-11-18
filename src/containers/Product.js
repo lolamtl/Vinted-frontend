@@ -8,7 +8,7 @@ const Product = ({ setUser }) => {
 
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const history = useHistory({});
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,13 +38,9 @@ const Product = ({ setUser }) => {
             {data.product_details.map((product, index) => {
               const keys = Object.keys(product);
               return (
-                <ul className="detailslist">
-                  <li className="keyproduct" key={index}>
-                    {keys[0]}
-                  </li>
-                  <li className="namekey" key={index}>
-                    {product[keys[0]]}
-                  </li>
+                <ul className="detailslist" key={index}>
+                  <li className="keyproduct">{keys[0]}</li>
+                  <li className="namekey">{product[keys[0]]}</li>
                 </ul>
               );
             })}
@@ -68,7 +64,10 @@ const Product = ({ setUser }) => {
         </div>
         <button
           onClick={() => {
-            history.push("/payment", { title: data.title });
+            history.push({
+              pathname: "/payment",
+              state: { title: data.product_name, price: data.product_price },
+            });
           }}
           className="buy"
         >
