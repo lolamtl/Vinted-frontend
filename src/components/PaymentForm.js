@@ -16,7 +16,8 @@ const PaymentForm = ({ token, title, price }) => {
       const cardElement = elements.getElement(CardElement);
 
       const stripeResponse = await stripe.createToken(cardElement, {
-        name: "5faea64473d23200179af0fb",
+        // name: "5faea64473d23200179af0fb",
+        name: "L'id de l'acheteur",
       });
       // console.log(stripeResponse);
       const stripeToken = stripeResponse.token.id;
