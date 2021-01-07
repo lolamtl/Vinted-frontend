@@ -13,7 +13,7 @@ const Product = ({ setUser }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        `https://vinted-back-end.herokuapp.com/offer/${id}`
       );
 
       setData(response.data);

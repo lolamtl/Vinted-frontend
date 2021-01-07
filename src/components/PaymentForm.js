@@ -23,14 +23,11 @@ const PaymentForm = ({ token, title, price }) => {
       const stripeToken = stripeResponse.token.id;
 
       // Requête vers notre serveur
-      const response = await axios.post(
-        " https://lereacteur-vinted-api.herokuapp.com/payment",
-        {
-          token: stripeToken,
-          title: title,
-          amount: price,
-        }
-      );
+      const response = await axios.post(" http://localhost:3005/payment", {
+        token: stripeToken,
+        title: title,
+        amount: price,
+      });
       // console.log(response.data);
       if (response.data.status === "succeeded") {
         setSucceed(true);

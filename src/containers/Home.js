@@ -11,10 +11,9 @@ const Home = ({ token }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
-        );
+        const response = await axios.get("http://localhost:3005/offers");
         setData(response.data);
+        console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -41,36 +40,43 @@ const Home = ({ token }) => {
       <div className="home">
         {data.offers.map((offer, index) => {
           return (
-            <Link className="card" to={`/product/${offer._id}`} key={offer._id}>
-              <div className="avatar">
-                {offer.owner.account.avatar ? (
-                  <img
-                    className="avatarimg"
-                    alt="avatar"
-                    src={offer.owner.account.avatar.url}
-                  />
-                ) : (
-                  offer.owner.account.avatar
-                )}
-                <p className="username">{offer.owner.account.username}</p>
-              </div>
-              <img
-                className="product"
-                alt="robe"
-                src={offer.product_image.url}
-              />
-              <div className="pricedescription">
-                <p>{offer.product_price} €</p>
-                {offer.product_details.map((product, index) => {
-                  return (
-                    <div className="description" key={index}>
-                      <p>{product.TAILLE}</p>
-                      <p>{product.MARQUE}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </Link>
+            <div>
+              <Link
+                className="card"
+                to={`/product/${offer._id}`}
+                key={offer._id}
+              >
+                <div className="avatar">
+                  {offer.owner.account.avatar ? (
+                    <img
+                      className="avatarimg"
+                      alt="avatar"
+                      src={offer.owner.account.avatar.url}
+                    />
+                  ) : (
+                    offer.owner.account.avatar
+                  )}
+                  <p className="username">{offer.owner.account.username}</p>
+                </div>
+                <img
+                  className="product"
+                  alt={offer.product_name}
+                  src={offer.product_image.secure_url}
+                />
+                <div className="pricedescription">
+                  <p>{offer.product_name}</p>
+                  <p>{offer.product_price} €</p>
+                  {offer.product_details.map((product, index) => {
+                    return (
+                      <div className="description">
+                        <p>{product[1]}</p>
+                        <p>{product[0]}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </Link>
+            </div>
           );
         })}
       </div>
