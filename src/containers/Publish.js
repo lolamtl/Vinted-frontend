@@ -31,11 +31,12 @@ const Publish = ({ token }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        " https://vinted-back-end.herokuapp.com/offer/publish",
+        " http://localhost:3005/offer/publish",
         formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
