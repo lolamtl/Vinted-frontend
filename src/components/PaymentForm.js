@@ -22,7 +22,6 @@ const PaymentForm = ({ token, title, price }) => {
       console.log(stripeResponse);
       // const stripeToken = stripeResponse.token.id;
 
-      // Requête vers notre serveur
       const response = await axios.post("http://localhost:3030/payment", {
         token: stripeResponse.token.id,
         title: title,
