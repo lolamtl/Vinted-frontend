@@ -19,7 +19,7 @@ const PaymentForm = ({ token, title, price }) => {
         name: "L'id de l'acheteur",
       });
 
-      console.log(stripeResponse);
+      // console.log(stripeResponse);
       // const stripeToken = stripeResponse.token.id;
 
       const response = await axios.post("http://localhost:3030/payment", {
