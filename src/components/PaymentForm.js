@@ -5,29 +5,32 @@ import axios from "axios";
 
 const PaymentForm = ({ token, title, price }) => {
   const [succeed, setSucceed] = useState(false);
-
   const stripe = useStripe();
   const elements = useElements();
 
+  // console.log(price);
+
   const handleSubmit = async (event) => {
-    event.preventDefault();
-
     try {
+      event.preventDefault();
       const cardElement = elements.getElement(CardElement);
-
       const stripeResponse = await stripe.createToken(cardElement, {
         // name: "5faea64473d23200179af0fb",
         name: "L'id de l'acheteur",
       });
-      // console.log(stripeResponse);
-      const stripeToken = stripeResponse.token.id;
+
+      console.log(stripeResponse);
+      // const stripeToken = stripeResponse.token.id;
 
       // Requête vers notre serveur
-      const response = await axios.post(" http://localhost:3005/payment", {
-        token: stripeToken,
-        title: title,
-        amount: price,
-      });
+      const response = await axios.post(
+        "https://vinted-back-end.herokuapp.com/payment",
+        {
+          token: stripeResponse.token.id,
+          title: title,
+          amount: price,
+        }
+      );
       // console.log(response.data);
       if (response.data.status === "succeeded") {
         setSucceed(true);

@@ -11,9 +11,11 @@ const Home = ({ token }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3005/offers");
+        const response = await axios.get(
+          "https://vinted-back-end.herokuapp.com/offers"
+        );
         setData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -40,7 +42,7 @@ const Home = ({ token }) => {
       <div className="home">
         {data.offers.map((offer, index) => {
           return (
-            <div>
+            <div key={index}>
               <Link
                 className="card"
                 to={`/product/${offer._id}`}
@@ -68,7 +70,7 @@ const Home = ({ token }) => {
                   <p>{offer.product_price} €</p>
                   {offer.product_details.map((product, index) => {
                     return (
-                      <div className="description">
+                      <div className="description" key={index}>
                         <p>{product[1]}</p>
                         <p>{product[0]}</p>
                       </div>
