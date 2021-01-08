@@ -31,19 +31,23 @@ const Publish = ({ token }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        " http://localhost:3005/offer/publish",
+        "http://localhost:3030/offer/publish",
         formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
+            // "Content-Type": "multipart/form-data",
           },
         }
       );
-      history.push("/");
-      console.log(response.data);
+
+      if (response.data) {
+        history.push("/");
+      } else {
+        alert("Une erreur est survenue, veuillez réssayer");
+      }
     } catch (error) {
-      console.log(error.message);
+      console.log("ça passe pas!");
     }
   };
 
