@@ -31,7 +31,7 @@ const Publish = ({ token }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3030/offer/publish",
+        "https://vinted-back-end.herokuapp.com/offer/publish",
         formData,
         {
           headers: {

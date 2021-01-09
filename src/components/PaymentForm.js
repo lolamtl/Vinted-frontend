@@ -22,11 +22,14 @@ const PaymentForm = ({ token, title, price }) => {
       // console.log(stripeResponse);
       // const stripeToken = stripeResponse.token.id;
 
-      const response = await axios.post("http://localhost:3030/payment", {
-        token: stripeResponse.token.id,
-        title: title,
-        amount: price,
-      });
+      const response = await axios.post(
+        "https://vinted-back-end.herokuapp.com/payment",
+        {
+          token: stripeResponse.token.id,
+          title: title,
+          amount: price,
+        }
+      );
       // console.log(response.data);
       if (response.data.status === "succeeded") {
         setSucceed(true);
