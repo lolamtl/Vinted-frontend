@@ -35,7 +35,7 @@ const PaymentForm = ({ token, title, price }) => {
         setSucceed(true);
       }
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response);
     }
   };
 

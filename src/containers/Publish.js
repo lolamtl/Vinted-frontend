@@ -13,6 +13,7 @@ const Publish = ({ token }) => {
   const [brand, setBrand] = useState("");
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
+  const [preview, setPreview] = useState("");
 
   const formData = new FormData();
   formData.append("picture", file);
@@ -46,14 +47,53 @@ const Publish = ({ token }) => {
         alert("Une erreur est survenue, veuillez réssayer");
       }
     } catch (error) {
-      console.log("ça passe pas!");
+      console.log(error.response);
     }
   };
 
   return token ? (
     <div className="containersale">
       <form className="carré" onSubmit={handleSubmit}>
-        <p className="varticle">Vends ton article</p>
+        <div>
+          {preview ? (
+            <div className="previewcase">
+              <img src={preview} alt="" />
+              <div
+                className="changepreview"
+                onClick={() => {
+                  setPreview("");
+                }}
+              >
+                X Changer de photo
+              </div>
+            </div>
+          ) : (
+            <div>
+              <p className="varticle">Vends ton article</p>
+              <div className="newpicture">
+                <div className="label">
+                  <label className="plus" htmlFor="file">
+                    +
+                  </label>
+                  <label className="cursor" htmlFor="file">
+                    Ajouter une photo
+                  </label>
+                </div>
+
+                <input
+                  className="photo"
+                  id="file"
+                  type="file"
+                  onChange={(event) => {
+                    setFile(event.target.files[0]);
+                    setPreview(URL.createObjectURL(event.target.files[0]));
+                  }}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+        {/* <p className="varticle">Vends ton article</p>
         <div className="newpicture">
           <div className="label">
             <label className="plus" htmlFor="file">
@@ -70,7 +110,7 @@ const Publish = ({ token }) => {
             type="file"
             onChange={(event) => setFile(event.target.files[0])}
           />
-        </div>
+        </div> */}
 
         <div className="containerbox">
           <div className="box">

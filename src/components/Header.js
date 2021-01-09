@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Header = ({ token, setUser }) => {
-  return (
+  const [search, setSearch] = useState("");
+  const [data, setData] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://vinted-back-end.herokuapp.com/offers"
+        );
+        setData(response.data);
+        // console.log(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return isLoading ? (
+    <p>Chargement ...</p>
+  ) : (
     <div className="header">
       <Link to="/">
         <img className="logo" alt="logo" src={Logo} />
@@ -12,7 +35,24 @@ const Header = ({ token, setUser }) => {
         className="search"
         type="search"
         placeholder="Recherche des articles"
-      ></input>
+        onChange={(event) => setSearch({ search: event.target.value })}
+      />
+      {/* {data.offers
+        .filter((val) => {
+          if (search === "") {
+          } else if (
+            val.product_name.toLowerCase().includes(search.toLowerCase)
+          ) {
+            return val.product_name;
+          }
+        })
+        .map((val, index) => {
+          return (
+            <div key={index}>
+              <p>{val.product_name}</p>
+            </div>
+          );
+        })} */}
 
       {token ? (
         <button

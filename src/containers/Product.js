@@ -12,12 +12,16 @@ const Product = ({ setUser }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://vinted-back-end.herokuapp.com/offer/${id}`
-      );
+      try {
+        const response = await axios.get(
+          `https://vinted-back-end.herokuapp.com/offer/${id}`
+        );
 
-      setData(response.data);
-      setIsLoading(false);
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
     };
     fetchData();
   }, [id]);
