@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import imgDéchirée from "../assets/déchirée-img.svg";
 import vetements from "../assets/vetements.jpg";
+import Loader from "react-loader-spinner";
 
 const Home = ({ token }) => {
   const [data, setData] = useState({});
@@ -15,7 +16,6 @@ const Home = ({ token }) => {
           "https://vinted-back-end.herokuapp.com/offers"
         );
         setData(response.data);
-        // console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.response);
@@ -24,7 +24,7 @@ const Home = ({ token }) => {
     fetchData();
   }, []);
   return isLoading ? (
-    <p>Chargement ...</p>
+    <Loader type="Puff" color="#00BFFF" height={100} width={100} />
   ) : (
     <div>
       <div className="container1">

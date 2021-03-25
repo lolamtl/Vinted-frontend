@@ -26,8 +26,6 @@ const Publish = ({ token }) => {
   formData.append("size", size);
   formData.append("color", color);
 
-  // console.log(formData);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -42,12 +40,16 @@ const Publish = ({ token }) => {
       );
 
       if (response.data) {
+        alert(
+          "Votre annonce à bien était prise en compte, cliqué sur ok pour retourner sur la page d'acceuil"
+        );
         history.push("/");
       } else {
-        alert("Une erreur est survenue, veuillez réssayer");
+        <p>L'un des champs est manquant, veuillez réssayer</p>;
       }
     } catch (error) {
       console.log(error.response);
+      alert("Un ou des champs sont manquant, veuillez réessayer");
     }
   };
 
@@ -93,25 +95,6 @@ const Publish = ({ token }) => {
             </div>
           )}
         </div>
-        {/* <p className="varticle">Vends ton article</p>
-        <div className="newpicture">
-          <div className="label">
-            <label className="plus" htmlFor="file">
-              +
-            </label>
-            <label className="cursor" htmlFor="file">
-              Ajouter une photo
-            </label>
-          </div>
-
-          <input
-            className="photo"
-            id="file"
-            type="file"
-            onChange={(event) => setFile(event.target.files[0])}
-          />
-        </div> */}
-
         <div className="containerbox">
           <div className="box">
             <p className="obj">Titre</p>

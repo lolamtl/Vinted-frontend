@@ -6,7 +6,6 @@ import axios from "axios";
 const Header = ({ token, setUser }) => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,8 +14,6 @@ const Header = ({ token, setUser }) => {
           "https://vinted-back-end.herokuapp.com/offers"
         );
         setData(response.data);
-        // console.log(response.data);
-        setIsLoading(false);
       } catch (error) {
         console.log(error.response);
       }
@@ -24,9 +21,7 @@ const Header = ({ token, setUser }) => {
     fetchData();
   }, []);
 
-  return isLoading ? (
-    <p>Chargement ...</p>
-  ) : (
+  return (
     <div className="header">
       <Link to="/">
         <img className="logo" alt="logo" src={Logo} />
@@ -37,22 +32,6 @@ const Header = ({ token, setUser }) => {
         placeholder="Recherche des articles"
         onChange={(event) => setSearch({ search: event.target.value })}
       />
-      {/* {data.offers
-        .filter((val) => {
-          if (search === "") {
-          } else if (
-            val.product_name.toLowerCase().includes(search.toLowerCase)
-          ) {
-            return val.product_name;
-          }
-        })
-        .map((val, index) => {
-          return (
-            <div key={index}>
-              <p>{val.product_name}</p>
-            </div>
-          );
-        })} */}
 
       {token ? (
         <button
@@ -73,6 +52,7 @@ const Header = ({ token, setUser }) => {
           </Link>
         </div>
       )}
+
       <Link className="vendre" to={token ? "/publish" : "/login"}>
         Vends tes articles
       </Link>

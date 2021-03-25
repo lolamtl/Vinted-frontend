@@ -12,8 +12,6 @@ import Publish from "./containers/Publish";
 import Payment from "./containers/Payment";
 
 export default function App() {
-  // const location = useLocation();
-  // const { title } = location.state;
   const [token, setToken] = useState(Cookie.get("userToken") || null);
   const setUser = (tokenToSet) => {
     if (tokenToSet) {

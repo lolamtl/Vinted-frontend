@@ -8,8 +8,6 @@ const PaymentForm = ({ token, title, price }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  // console.log(price);
-
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
@@ -19,9 +17,6 @@ const PaymentForm = ({ token, title, price }) => {
         name: "L'id de l'acheteur",
       });
 
-      // console.log(stripeResponse);
-      // const stripeToken = stripeResponse.token.id;
-
       const response = await axios.post(
         "https://vinted-back-end.herokuapp.com/payment",
         {
@@ -30,7 +25,6 @@ const PaymentForm = ({ token, title, price }) => {
           amount: price,
         }
       );
-      // console.log(response.data);
       if (response.data.status === "succeeded") {
         setSucceed(true);
       }

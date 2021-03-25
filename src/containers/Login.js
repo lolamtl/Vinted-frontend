@@ -18,16 +18,18 @@ const Login = ({ setUser }) => {
           password: password,
         }
       );
-      // console.log(response.data);
-
       if (response.data.token) {
         setUser(response.data.token);
         history.push("/");
       } else {
-        alert("Aïe!");
+        <p>Il manque un truc</p>;
       }
     } catch (error) {
       console.log(error.response);
+      alert(
+        "Vous n'avez pas encore de compte chez nous ? passer à l'inscription"
+      );
+      history.push("/signup");
     }
   };
 

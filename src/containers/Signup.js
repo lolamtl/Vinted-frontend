@@ -21,8 +21,6 @@ const Signup = ({ setUser }) => {
           password: password,
         }
       );
-      // console.log(response.data);
-
       if (response.data.token) {
         setUser(response.data.token);
         history.push("/");
