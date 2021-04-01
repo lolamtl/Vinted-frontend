@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import axios from "axios";
+import "../containers/Publish.css";
 
 const Publish = ({ token }) => {
   const history = useHistory();

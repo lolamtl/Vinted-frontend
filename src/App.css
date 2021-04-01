@@ -1,78 +1,6 @@
 body {
   margin: 0;
 }
-.logo {
-  height: 30px;
-}
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-.search {
-  margin-left: 80px;
-  height: 40px;
-  width: 620px;
-  border: none;
-  background-color: #f5f6f7;
-  border-radius: 5px;
-  font-family: Maison -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-  font-size: 17px;
-  padding-left: 50px;
-}
-.submit {
-  font-family: "Maison Neue";
-  font-size: 15px;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.signup {
-  margin-left: 70px;
-  padding: 5px 30px;
-  display: flex;
-  justify-content: space-around;
-  border-radius: 5px;
-  color: #2cb1ba;
-  border: 1px solid #2cb1ba;
-  text-decoration: none;
-}
-.login {
-  padding: 5px 30px;
-  border-radius: 5px;
-  margin-left: 20px;
-  color: #2cb1ba;
-  border: 1px solid #2cb1ba;
-  text-decoration: none;
-}
-.deconnect {
-  background-color: #c2165b;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 12px;
-  color: white;
-  border: none;
-  padding: 7px;
-  border-radius: 5px;
-  margin-left: 100px;
-}
-.vendre {
-  display: flex;
-  align-items: center;
-  background-color: #2cb1ba;
-  color: white;
-  border: none;
-  height: 32px;
-  width: 125px;
-  border-radius: 5px;
-  text-decoration: none;
-  justify-content: center;
-  margin-left: 10px;
-}
 .container1 {
   position: relative;
   margin-top: 10px;
@@ -80,9 +8,13 @@ body {
 }
 .déchirée {
   position: absolute;
-  top: 420px;
-  bottom: 0px;
-  right: 0;
+  top: 412px;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .vetements {
   position: absolute;
@@ -256,73 +188,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.inscrire {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-}
-.titlesignup {
-  display: flex;
-  justify-content: center;
-  font-size: 24px;
-
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-.tripleinput {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.name {
-  border: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  width: 280px;
-  border-bottom: 1px solid #fbced3;
-  margin: 7px auto;
-}
-.email {
-  border: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  width: 280px;
-  border-bottom: 1px solid #fbced3;
-  padding-bottom: 10px;
-}
-.code {
-  border: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  width: 280px;
-  border-bottom: 1px solid #fbced3;
-  padding-bottom: 10px;
-  margin: 10px auto;
-}
-.inscription {
-  background-color: #2cb1ba;
-  height: 45px;
-  width: 100%;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 16px;
-  margin-top: 20px;
-}
-.gologin {
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-  color: #2cb1ba;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 12px;
-  margin-top: 20px;
-}
 .checkbox {
   transform: scale(2);
   margin-right: 20px;
@@ -330,16 +195,6 @@ body {
 .accepte {
   display: flex;
   align-items: center;
-}
-.newsletter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #666666;
-  font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .termes {
@@ -352,33 +207,7 @@ body {
 .textnewsletter {
   margin: 10px 0px;
 }
-.containersale {
-  background-color: #ebedee;
-  width: 100vw;
-  height: 100vw;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.box {
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px #ebedee solid;
-  padding-bottom: 20px;
-  padding: 0px 0px 20px;
-}
-.box2 {
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
-.containerbox {
-  background-color: white;
-  margin-bottom: 20px;
-  padding: 0px 20px;
-}
+
 .newpicture {
   display: flex;
   justify-content: center;
@@ -387,43 +216,12 @@ body {
   margin-bottom: 20px;
   height: 200px;
 }
-.label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px#39b1ba;
-  color: #39b1ba;
-  font-size: 20px;
-  padding: 0px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.plus {
-  cursor: pointer;
-  align-items: center;
-  margin-right: 20px;
-  font-style: bold;
-  font-size: 40px;
-}
 .cursor {
   cursor: pointer;
 }
-.input1 {
-  border: none;
-  display: flex;
-  align-items: flex-end;
-  border-bottom: 1px #ebedee solid;
-  padding-bottom: 0px;
-  font-size: 16px;
-  width: 500px;
-}
 .photo {
   display: none;
-
   cursor: pointer;
-}
-.carré {
-  width: 1300px;
 }
 .changepreview {
   border: solid 1px#39b1ba;
@@ -439,65 +237,11 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.varticle {
-  font-size: 24px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-.obj {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-.input2 {
-  padding-bottom: 100px;
-  border: none;
-  border-bottom: #ebedee 1px solid;
-  width: 500px;
-  font-size: 16px;
-}
-.chekbox1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-}
 .checkbox2 {
   display: flex;
   align-items: center;
 
   margin-right: 180px;
-}
-.input3 {
-  border: none;
-  border-bottom: #ebedee 1px solid;
-
-  font-size: 16px;
-  margin: 20px 320px 0 0px;
-}
-.click {
-  transform: scale(2);
-}
-.interessé {
-  padding-left: 20px;
-  font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-.ajouter {
-  display: flex;
-  justify-content: flex-end;
-}
-.ajouter2 {
-  margin-top: 70px;
-  background-color: #39b1ba;
-  color: white;
-  border: none;
-  width: 80px;
-  height: 40px;
-  font-size: 16px;
-  border-radius: 5px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .pay {
   background-color: #05bb6a;
@@ -506,7 +250,6 @@ body {
   font-size: 16px;
   margin: 40px 20px;
   padding: 10px 20px;
-  /* height: 50px; */
   border-radius: 5px;
 }
 .paiement {
@@ -572,4 +315,85 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
+}
+@media (max-width: 1268px) {
+  .déchirée {
+    top: 414px;
+  }
+}
+@media (max-width: 1239px) {
+  .déchirée {
+    top: 420px;
+  }
+}
+@media (max-width: 1153px) {
+  .déchirée {
+    top: 421px;
+  }
+}
+@media (max-width: 1139px) {
+  .déchirée {
+    top: 422px;
+  }
+}
+@media (max-width: 1125px) {
+  .déchirée {
+    top: 423px;
+  }
+}
+@media (max-width: 1110px) {
+  .déchirée {
+    top: 424px;
+  }
+}
+@media (max-width: 1096px) {
+  .déchirée {
+    top: 430px;
+  }
+}
+@media (max-width: 1010px) {
+  .déchirée {
+    top: 432px;
+  }
+}
+@media (max-width: 981px) {
+  .déchirée {
+    top: 436px;
+  }
+}
+@media (max-width: 925px) {
+  .déchirée {
+    top: 446px;
+  }
+}
+
+@media (max-width: 781px) {
+  .déchirée {
+    top: 457px;
+  }
+}
+@media (max-width: 640px) {
+  .block {
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 130px;
+    padding: 25px 20px;
+  }
+  .startsale {
+    width: 100px;
+    height: 30px;
+    margin-top: 5px;
+  }
+}
+@media (max-width: 623px) {
+  .déchirée {
+    top: 460px;
+  }
+}
+@media (max-width: 580px) {
+  .déchirée {
+    top: 466px;
+  }
 }

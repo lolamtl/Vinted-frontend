@@ -1,25 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import "../components/Header.css";
 
 const Header = ({ token, setUser }) => {
   const [search, setSearch] = useState("");
-  const [data, setData] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://vinted-back-end.herokuapp.com/offers"
-        );
-        setData(response.data);
-      } catch (error) {
-        console.log(error.response);
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <div className="header">
